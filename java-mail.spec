@@ -14,7 +14,7 @@ Requires:	jre >= 1.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_javalibdir	/usr/share/java
+%define		_javalibdir	%{_datadir}/java
 
 %description
 The JavaMail(TM) API provides a set of abstract classes that model a
