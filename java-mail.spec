@@ -1,11 +1,11 @@
 Summary:	JavaMail - Java mail system
 Summary(pl):	JavaMail - system pocztowy w Javie
 Name:		javamail
-Version:	1.2
+Version:	1.3
 Release:	1
 License:	restricted, non-distributable (Sun Binary Code License - see LICENSE.txt)
 Group:		Development/Languages/Java
-Source0:	%{name}-1_2.zip
+Source0:	%{name}-%(echo %{version} | tr . _).zip
 URL:		http://java.sun.com/products/javamail/
 NoSource:	0
 Requires:	jaf
@@ -44,6 +44,7 @@ Dokumentacja do JavaMail.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javalibdir}
 install *.jar $RPM_BUILD_ROOT%{_javalibdir}
+install lib/*.jar $RPM_BUILD_ROOT%{_javalibdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
