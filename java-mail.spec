@@ -5,10 +5,10 @@ Version:	1.3.1
 Release:	1
 License:	restricted, non-distributable (Sun Binary Code License - see LICENSE.txt)
 Group:		Development/Languages/Java
-#Source0:	%{name}-%(echo %{version} | tr . _).zip
-Source0:	http://public.www.planetmirror.com/pub/java-sun/%{name}/%{name}-1_3_1.zip
-URL:		http://java.sun.com/products/javamail/
+Source0:	%{name}-1_3_1-upd.zip
+# NoSource0-md5:	a83fa4102e7a1441d7c1046015675f46
 NoSource:	0
+URL:		http://java.sun.com/products/javamail/
 Requires:	jaf
 Requires:	jre >= 1.1
 BuildArch:	noarch
