@@ -5,8 +5,6 @@ Version:	1.2
 Release:	1
 License:	Read LICENSE.txt!
 Group:		Development/Languages/Java
-Group(de):	Entwicklung/Sprachen/Java
-Group(pl):	Programowanie/Jêzyki/Java
 Source0:	javamail-1_2.zip
 URL:		http://java.sun.com/products/javamail/
 Requires:	jaf
@@ -30,8 +28,6 @@ tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o Javê.
 Summary:	JavaMail documentation
 Summary(pl):	Dokumentacja do JavaMail
 Group:		Development/Languages/Java
-Group(de):	Entwicklung/Sprachen/Java
-Group(pl):	Programowanie/Jêzyki/Java
 
 %description doc
 JavaMail documentation.
