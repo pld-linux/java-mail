@@ -5,6 +5,7 @@ Version:	1.3.2
 Release:	1
 License:	restricted, non-distributable (Sun Binary Code License - see LICENSE.txt)
 Group:		Development/Languages/Java
+# download through forms from http://java.sun.com/products/javamail/downloads/
 Source0:	%{name}-1_3_2.zip
 # NoSource0-md5:	e65b92fde398f472cbe4cb12c69303fe
 NoSource:	0
