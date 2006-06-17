@@ -10,6 +10,7 @@ Source0:	%{name}-%(echo %{version} | tr . _).zip
 # NoSource0-md5:	54d3d6d17d5ec7ba760d0a9183e5fe1d
 NoSource:	0
 URL:		http://java.sun.com/products/javamail/
+BuildRequires:	unzip
 Requires:	jaf
 Requires:	jre >= 1.1
 BuildArch:	noarch
