@@ -40,7 +40,7 @@ JavaMail documentation.
 Dokumentacja do JavaMail.
 
 %prep
-%setup -q -n %{name}-1.4
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
