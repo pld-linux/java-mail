@@ -7,7 +7,7 @@ License:	restricted, non-distributable (Sun Binary Code License - see LICENSE.tx
 Group:		Development/Languages/Java
 # download through forms from http://java.sun.com/products/javamail/downloads/
 Source0:	%{name}-%(echo %{version} | tr . _).zip
-# NoSource0-md5:	54d3d6d17d5ec7ba760d0a9183e5fe1d
+# NoSource0-md5:	4541a84c4d329291fe87b57fde276b0e
 NoSource:	0
 URL:		http://java.sun.com/products/javamail/
 BuildRequires:	unzip
