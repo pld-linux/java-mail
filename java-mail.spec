@@ -1,5 +1,5 @@
 Summary:	JavaMail - Java mail system
-Summary(pl):	JavaMail - system pocztowy w Javie
+Summary(pl.UTF-8):   JavaMail - system pocztowy w Javie
 Name:		javamail
 Version:	1.4
 Release:	1
@@ -24,20 +24,20 @@ mail system. The API provides a platform independent and protocol
 independent framework to build Java technology-based mail and
 messaging applications.
 
-%description -l pl
-API JavaMail(TM) daje zestaw klas abstrakcyjnych tworz±cych system
-pocztowy. API daje niezale¿ne od platformy i protoko³u ¶rodowisko do
-tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o Javê.
+%description -l pl.UTF-8
+API JavaMail(TM) daje zestaw klas abstrakcyjnych tworzÄ…cych system
+pocztowy. API daje niezaleÅ¼ne od platformy i protokoÅ‚u Å›rodowisko do
+tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o JavÄ™.
 
 %package doc
 Summary:	JavaMail documentation
-Summary(pl):	Dokumentacja do JavaMail
+Summary(pl.UTF-8):   Dokumentacja do JavaMail
 Group:		Development/Languages/Java
 
 %description doc
 JavaMail documentation.
 
-%description doc -l pl
+%description doc -l pl.UTF-8
 Dokumentacja do JavaMail.
 
 %prep
