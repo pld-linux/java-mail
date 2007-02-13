@@ -1,5 +1,5 @@
 Summary:	JavaMail - Java mail system
-Summary(pl.UTF-8):   JavaMail - system pocztowy w Javie
+Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		javamail
 Version:	1.4
 Release:	1
@@ -31,7 +31,7 @@ tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o Javę.
 
 %package doc
 Summary:	JavaMail documentation
-Summary(pl.UTF-8):   Dokumentacja do JavaMail
+Summary(pl.UTF-8):	Dokumentacja do JavaMail
 Group:		Development/Languages/Java
 
 %description doc
