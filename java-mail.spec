@@ -1,22 +1,25 @@
+%include	/usr/lib/rpm/macros.java
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		javamail
-Version:	1.4
+Version:	1.4.1
 Release:	1
 License:	restricted, non-distributable (Sun Binary Code License - see LICENSE.txt)
 Group:		Development/Languages/Java
 # download through forms from http://java.sun.com/products/javamail/downloads/
 Source0:	%{name}-%(echo %{version} | tr . _).zip
-# NoSource0-md5:	4541a84c4d329291fe87b57fde276b0e
+# NoSource0-md5:	21296bdf2e55f2449ab4471b02503a5b
 NoSource:	0
 URL:		http://java.sun.com/products/javamail/
+BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
+BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	unzip
 Requires:	jaf
+Requires:	jpackage-utils
 Requires:	jre >= 1.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_javalibdir	%{_datadir}/java
 
 %description
 The JavaMail(TM) API provides a set of abstract classes that model a
@@ -45,9 +48,15 @@ Dokumentacja do JavaMail.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_javalibdir}
-install *.jar $RPM_BUILD_ROOT%{_javalibdir}
-install lib/*.jar $RPM_BUILD_ROOT%{_javalibdir}
+install -d $RPM_BUILD_ROOT%{_javadir}/%{name}
+cp -a mail.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mail.jar
+
+# put into our own dir so other implementations can override symlinks
+cp -a lib/*.jar $RPM_BUILD_ROOT%{_javadir}/%{name}
+for a in lib/*.jar; do
+	ln -s %{name}/${a##*/} $RPM_BUILD_ROOT%{_javadir}
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,7 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES.txt LICENSE.txt NOTES.txt README.txt
-%{_javalibdir}/*.jar
+%{_javadir}/*.jar
+%dir %{_javadir}/%{name}
+%{_javadir}/%{name}/*.jar
 
 %files doc
 %defattr(644,root,root,755)
