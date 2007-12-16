@@ -63,8 +63,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES.txt LICENSE.txt NOTES.txt README.txt
-%{_javadir}/*.jar
+%doc CHANGES.txt COMPAT.txt LICENSE.txt NOTES.txt README.txt SSLNOTES.txt distributionREADME.txt
+%{_javadir}/javamail-%{version}.jar
+%{_javadir}/mail.jar
+# lib symlinks
+%{_javadir}/dsn.jar
+%{_javadir}/imap.jar
+%{_javadir}/mailapi.jar
+%{_javadir}/pop3.jar
+%{_javadir}/smtp.jar
 %dir %{_javadir}/%{name}
 %{_javadir}/%{name}/*.jar
 
