@@ -1,3 +1,7 @@
+# TODO:
+# - javamail is opensource now and can be downloaded here
+#   https://maven-repository.dev.java.net/nonav/repository/javax.mail/
+#   so it no longer has to be nosrc package
 %include	/usr/lib/rpm/macros.java
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
