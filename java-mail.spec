@@ -3,15 +3,17 @@
 # - what about docs, examples etc. ?
 # - build from sources. It is possible now.
 %include	/usr/lib/rpm/macros.java
+#
+%define	srcname	mail
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
-Name:		javamail
+Name:		mail
 Version:	1.4.1
 Release:	1.1
 License:	CDDL
 Group:		Development/Languages/Java
 # download through forms from http://java.sun.com/products/javamail/downloads/
-Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/mail-1.4.1.jar
+Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/%{name}-%{version}.jar
 # Source0-md5:	584010e5e62f4fa4b8ccfdf35a2c3a8a
 URL:		http://java.sun.com/products/javamail/
 BuildRequires:	jpackage-utils
@@ -39,7 +41,8 @@ tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o Javę.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 cp -a %SOURCE0 $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
-ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mail.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
+ln -s javamail-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -47,4 +50,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{_javadir}/javamail-%{version}.jar
-%{_javadir}/mail.jar
+%{_javadir}/%{srcname}-%{version}.jar
+%{_javadir}/%{srcname}.jar
