@@ -7,13 +7,13 @@
 %define	srcname	mail
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
-Name:		mail
+Name:		java-mail
 Version:	1.4.1
 Release:	1.1
 License:	CDDL
 Group:		Development/Languages/Java
 # download through forms from http://java.sun.com/products/javamail/downloads/
-Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/%{name}-%{version}.jar
+Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/%{srcname}-%{version}.jar
 # Source0-md5:	584010e5e62f4fa4b8ccfdf35a2c3a8a
 URL:		http://java.sun.com/products/javamail/
 BuildRequires:	jpackage-utils
