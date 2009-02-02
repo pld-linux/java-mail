@@ -42,9 +42,9 @@ tworzenia aplikacji pocztowych i komunikacyjnych w oparciu o Javę.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a %SOURCE0 $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+cp -a %SOURCE0 $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
-ln -s javamail-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/javamail-%{version}.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
