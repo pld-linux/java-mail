@@ -21,6 +21,8 @@ BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jaf
 Requires:	jpackage-utils
+Provides:	javamail = %{version}-%{release}
+Obsoletes:	javamail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
