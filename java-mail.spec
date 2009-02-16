@@ -1,5 +1,4 @@
 # TODO:
-# - not tested after changing Source0 !!!
 # - what about docs, examples etc. ?
 # - build from sources. It is possible now.
 %include	/usr/lib/rpm/macros.java
@@ -9,10 +8,9 @@ Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
 Version:	1.4.1
-Release:	1.1
+Release:	2
 License:	CDDL
 Group:		Libraries/Java
-# download through forms from http://java.sun.com/products/javamail/downloads/
 Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/%{srcname}-%{version}.jar
 # Source0-md5:	584010e5e62f4fa4b8ccfdf35a2c3a8a
 URL:		http://java.sun.com/products/javamail/
