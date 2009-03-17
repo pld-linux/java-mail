@@ -16,7 +16,7 @@ Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/
 URL:		http://java.sun.com/products/javamail/
 BuildRequires:	jaf
 %{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:java-sun}
+%{?with_java_sun:BuildRequires:	java-sun}
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
