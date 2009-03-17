@@ -1,4 +1,5 @@
 %bcond_without  javadoc         # don't build javadoc
+%bcond_with	java_sun	# build with java-sun
 #
 %include	/usr/lib/rpm/macros.java
 #
@@ -7,14 +8,15 @@ Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
 Version:	1.4.1
-Release:	3
+Release:	4
 License:	CDDL
 Group:		Libraries/Java
 Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/mail-%{version}-sources.jar
 # Source0-md5:	e5517da355c865a6451c451e45ccbba1
 URL:		http://java.sun.com/products/javamail/
 BuildRequires:	jaf
-BuildRequires:	java-gcj-compat-devel
+%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
+%{?with_java_sun:BuildRequires:java-sun}
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
@@ -56,7 +58,6 @@ Javadoc pour java-mail.
 
 %build
 CLASSPATH=$(build-classpath activation)
-export SHELL=/bin/sh
 
 %javac -classpath $CLASSPATH -source 1.4 -target 1.4 -d build $(find -name '*.java')
 %javadoc -all -d apidocs
@@ -65,7 +66,7 @@ export SHELL=/bin/sh
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a %SOURCE0 $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
+cp -a %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/javamail-%{version}.jar
 
