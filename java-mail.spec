@@ -63,8 +63,15 @@ Javadoc pour java-mail.
 %build
 CLASSPATH=$(build-classpath activation)
 
+install -d build
 %javac -classpath $CLASSPATH -source 1.4 -target 1.4 -d build $(find -name '*.java')
-%javadoc -all -d apidocs
+
+%if %{with javadoc}
+%javadoc -d apidocs \
+	%{?with_java_sun:com.sun.mail} \
+	$(find com/sun/mail -name '*.java') 
+%endif
+
 %jar -cf %{srcname}-%{version}.jar -C build .
 
 %install
