@@ -21,8 +21,8 @@ BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	java(jaf)
 Requires:	jpackage-utils
 Provides:	java(javamail) = %{version}-%{release}
-Obsoletes:	javamail
 Obsoletes:	java(javamail)
+Obsoletes:	javamail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,8 +63,7 @@ install -d build
 
 %if %{with javadoc}
 %javadoc -d apidocs \
-	%{?with_java_sun:com.sun.mail} \
-	$(find com/sun/mail -name '*.java') 
+	$(find com/sun/mail -name '*.java')
 %endif
 
 %jar -cf %{srcname}-%{version}.jar -C build .
