@@ -1,9 +1,4 @@
 %bcond_without  javadoc         # don't build javadoc
-%if "%{pld_release}" == "ti"
-%bcond_without	java_sun	# build with gcj
-%else
-%bcond_with	java_sun	# build with java-sun
-%endif
 #
 %include	/usr/lib/rpm/macros.java
 #
@@ -12,22 +7,22 @@ Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
 Version:	1.4.1
-Release:	5
+Release:	6
 License:	CDDL
 Group:		Libraries/Java
 Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/mail-%{version}-sources.jar
 # Source0-md5:	e5517da355c865a6451c451e45ccbba1
 URL:		http://java.sun.com/products/javamail/
-BuildRequires:	jaf
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
+BuildRequires:	java(jaf)
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	jaf
+Requires:	java(jaf)
 Requires:	jpackage-utils
-Provides:	javamail = %{version}-%{release}
+Provides:	java(javamail) = %{version}-%{release}
 Obsoletes:	javamail
+Obsoletes:	java(javamail)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
