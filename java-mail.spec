@@ -1,3 +1,5 @@
+#
+# Conditional build:
 %bcond_without  javadoc         # don't build javadoc
 #
 %include	/usr/lib/rpm/macros.java
@@ -42,6 +44,7 @@ Summary:	Online manual for java-mail
 Summary(pl.UTF-8):	Dokumentacja online do java-mail
 Group:		Documentation
 Requires:	jpackage-utils
+Obsoletes:	javamail-doc
 
 %description javadoc
 Documentation for java-mail.
