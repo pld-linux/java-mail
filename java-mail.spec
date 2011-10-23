@@ -13,7 +13,7 @@ Release:	1
 License:	CDDL
 Group:		Libraries/Java
 #Source0:	http://download.oracle.com/otn-pub/java/javamail/%{version}/javamail%{ver}.zip
-Source0:	http://download.java.net/maven/2/com/sun/mail/javax.mail/1.4.4/javax.mail-1.4.4-sources.jar
+Source0:	http://download.java.net/maven/2/com/sun/mail/javax.mail/%{version}/javax.mail-%{version}-sources.jar
 # Source0-md5:	605fd51ed38eb2af777d40fc29454008
 URL:		http://www.oracle.com/technetwork/java/javamail/index.html
 BuildRequires:	java(jaf)
