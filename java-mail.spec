@@ -1,20 +1,21 @@
 #
 # Conditional build:
 %bcond_without  javadoc         # don't build javadoc
-#
+
+%define		srcname	mail
+%define		ver		%(echo %{version} | tr . _)
 %include	/usr/lib/rpm/macros.java
-#
-%define	srcname	mail
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
-Version:	1.4.1
-Release:	6
+Version:	1.4.4
+Release:	1
 License:	CDDL
 Group:		Libraries/Java
-Source0:	https://maven-repository.dev.java.net/nonav/repository/javax.mail/jars/mail-%{version}-sources.jar
-# Source0-md5:	e5517da355c865a6451c451e45ccbba1
-URL:		http://java.sun.com/products/javamail/
+#Source0:	http://download.oracle.com/otn-pub/java/javamail/%{version}/javamail%{ver}.zip
+Source0:	http://download.java.net/maven/2/com/sun/mail/javax.mail/1.4.4/javax.mail-1.4.4-sources.jar
+# Source0-md5:	605fd51ed38eb2af777d40fc29454008
+URL:		http://www.oracle.com/technetwork/java/javamail/index.html
 BuildRequires:	java(jaf)
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
@@ -62,21 +63,30 @@ Javadoc pour java-mail.
 CLASSPATH=$(build-classpath activation)
 
 install -d build
-%javac -classpath $CLASSPATH -source 1.4 -target 1.4 -d build $(find -name '*.java')
+%javac \
+	-classpath $CLASSPATH \
+	-source 1.4 \
+	-target 1.4 \
+	-d build $(find -name '*.java')
+
+%jar \
+	-cfm %{srcname}-%{version}.jar \
+	META-INF/MANIFEST.MF \
+	-C build \
+	. META-INF
 
 %if %{with javadoc}
 %javadoc -d apidocs \
 	$(find com/sun/mail -name '*.java')
 %endif
 
-%jar -cf %{srcname}-%{version}.jar -C build .
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
+cp -p %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/javamail-%{version}.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/javamail.jar
 
 # javadoc
 %if %{with javadoc}
@@ -93,9 +103,10 @@ ln -nfs %{srcname}-%{version} %{_javadocdir}/%{srcname}
 
 %files
 %defattr(644,root,root,755)
-%{_javadir}/javamail-%{version}.jar
 %{_javadir}/%{srcname}-%{version}.jar
 %{_javadir}/%{srcname}.jar
+%{_javadir}/javamail-%{version}.jar
+%{_javadir}/javamail.jar
 
 %if %{with javadoc}
 %files javadoc
