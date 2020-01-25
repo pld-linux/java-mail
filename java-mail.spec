@@ -4,7 +4,6 @@
 
 %define		srcname	mail
 %define		ver		%(echo %{version} | tr . _)
-%include	/usr/lib/rpm/macros.java
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
