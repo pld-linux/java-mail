@@ -2,13 +2,15 @@
 # Conditional build:
 %bcond_without  javadoc         # don't build javadoc
 
+%{?use_default_jdk:%use_default_jdk 8}
+
 %define		srcname	mail
 %define		ver		%(echo %{version} | tr . _)
 Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
 Version:	1.4.4
-Release:	1
+Release:	2
 License:	CDDL
 Group:		Libraries/Java
 #Source0:	http://download.oracle.com/otn-pub/java/javamail/%{version}/javamail%{ver}.zip
@@ -16,14 +18,13 @@ Source0:	http://download.java.net/maven/2/com/sun/mail/javax.mail/%{version}/jav
 # Source0-md5:	605fd51ed38eb2af777d40fc29454008
 URL:		http://www.oracle.com/technetwork/java/javamail/index.html
 BuildRequires:	java(jaf)
-BuildRequires:	jdk
+%buildrequires_jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.556
 Requires:	java(jaf)
 Requires:	jpackage-utils
 Provides:	java(javamail) = %{version}-%{release}
-Obsoletes:	java(javamail)
 Obsoletes:	javamail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
