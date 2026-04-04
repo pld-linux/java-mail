@@ -10,7 +10,7 @@ Summary:	JavaMail - Java mail system
 Summary(pl.UTF-8):	JavaMail - system pocztowy w Javie
 Name:		java-mail
 Version:	1.4.4
-Release:	2
+Release:	3
 License:	CDDL
 Group:		Libraries/Java
 #Source0:	http://download.oracle.com/otn-pub/java/javamail/%{version}/javamail%{ver}.zip
